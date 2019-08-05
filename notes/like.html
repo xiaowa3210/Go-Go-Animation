@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                position: relative;
+            }
+            #like-btn {
+                position: absolute;
+                top: 200px;
+                left: 200px;
+                width: 100px;
+                height: 50px;
+                background: yellowgreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="like-btn">喜欢</div>
+        <script type="module">
+            import Like from './like.js'
+            window.onload = function() {
+                let btn = document.querySelector('#like-btn')
+                btn.onclick = function() {
+                    new Like(window.getComputedStyle(btn).top, window.getComputedStyle(btn).left, 2, 30, 50)
+                }
+            }
+        </script>
+    </body>
+</html>
