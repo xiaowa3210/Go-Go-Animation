@@ -1,23 +1,65 @@
 <template>
   <div id="app">
-    <turntable
+    <!-- <turntable
       :stop-index = "stopIndex"
       :rewards = "rewards"
       @start = "start">
-    </turntable>
+    </turntable> -->
+    <!-- <test-render /> -->
+    <comment
+      v-for="(item, key) in commentsList"
+      :key="key"
+      :reply="item.reply"
+      :comment="item"
+      :deep="0"
+    />
   </div>
 </template>
 
 <script>
-import turntable from './components/turntable/index'
-
+// import turntable from './components/turntable/index'
+// import testRender from './components/testRender/index'
+import comment from './components/commentTree/index'
 export default {
   name: 'App',
   components: {
-    turntable
+    comment
+    // turntable
+    // testRender
   },
   data() {
     return {
+      commentsList: [
+          {
+              cuid: '小瓦',
+              info: '啊啊啊超漂亮',
+              reply:[
+                  {
+                      cuid: '小计',
+                      info: '对呀对呀对啊',
+                      reply: [
+                          {
+                              cuid: '小红',
+                              info: '英雄所见略同',
+                              reviewer: '小计',
+                              reply: []
+                          }
+                      ]
+                  }
+              ]
+          },
+          {
+              cuid: '小当',
+              info: '想吃雪糕啊啊啊啊',
+              reply: [
+                  {
+                      cuid: '小东',
+                      info: '我也想我也想',
+                      reply: []
+                  }
+              ]
+          }
+      ],
       stopIndex: -1,
       rewards: [
         require('./assets/imgs/turntable/award-1.png'),

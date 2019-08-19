@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .box {
+                width: 50px;
+                height: 50px;
+                background: pink;
+            }
+            .other {
+                width: 100px;
+                height: 100px;
+                background: yellowgreen;
+            }
+            #box2 {
+                transform: translateZ(0);
+            }
+            #box3 {
+                position: absolute;
+                left: 0;
+                transform: translateZ(0);
+                transition: left 5s 0s ease-out;
+            }
+            #box4 {
+                transition: transform 5s 0s ease-out;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div>普通图层</div>
+            <div id="box1" class="box"></div>
+            <div class="other"></div>
+            <button id="btn1">点击transform:scale(2, 1)</button>
+        </div>
+        <div class="wrap">
+            <div>复合图层transform: translateZ(0)</div>
+            <div id="box2" class="box"></div>
+            <div class="other"></div>
+            <button id="btn2">点击transform:scale(1, 2)</button>
+        </div>
+        <div class="wrap" style="position: relative; height: 100px">
+            <div id="box3" class="box"></div>
+            <button id="btn3" style="position: absolute; top: 60px">点击left: 100px</button>
+        </div>
+        <div class="wrap">
+            <div id="box4" class="box"></div>
+            <button id="btn4">点击transform: translateX(100px)</button>
+        </div>
+        <script>
+            window.onload = function() {
+                document.querySelector('#btn1').onclick = function() {
+                    document.querySelector('#box1').style.transform = 'scale(1, 2)'
+                }
+                document.querySelector('#btn2').onclick = function() {
+                    document.querySelector('#box2').style.transform = 'scale(1, 2)'
+                }
+                document.querySelector('#btn3').onclick = function() {
+                    document.querySelector('#box3').style.left = '100px'
+                }
+                document.querySelector('#btn4').onclick = function() {
+                    document.querySelector('#box4').style.transform = 'translateX(100PX)'
+                }
+            }
+        </script>
+    </body>
+</html>
