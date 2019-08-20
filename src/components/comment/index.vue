@@ -101,7 +101,7 @@ export default {
                 item.info = node.info;
                 item.reviewer = node.reviewer;
                 res.push(item);
-                this.recursiveTraverse(node.reply, res)
+                this.recursiveTraverse(node.reply, res);
             })
         },
         addReply(cuid, reviewer = '') {
